@@ -1,0 +1,123 @@
+<html>
+<head>
+	<title>Flower Map</title>
+
+	<!-- Link to JQuery library (used for modal) -->	
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+
+	<!-- Link to our custom stylesheet -->	
+	<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+
+<!-- Button to hide or show "About this map" modal -->	
+
+	<!-- Map  -->	
+	<div id="svg-main">
+	</div>
+
+
+	<div id="exports">
+		<svg id="pie-chart" width="864" height="450"></svg>
+	</div>
+
+<!-- 	<div id="imports">
+		<svg id="pie-chart2" width="" height="500"></svg>
+	</div> -->
+
+
+	<div>
+		<p id="label">THE STORY OF DAHLIAS</p>
+		<button class='button-default' id="dahliaInfo">IMAGE</button>
+		<button class='button-default' id="dahliaSpread">NATIVE HABITAT</button>
+		<button class='button-default' id="dahliaCities">CITIES</button>
+		<button class='button-default' id="dahliaPrev">PREVIOUS</button>
+		<button class='button-default' id="dahliaNext">NEXT</button>
+	 </div>
+
+	 <div>
+	 	<p id="label">THE STORY OF TULIPS</p>
+	 	<button class='button-default'">IMAGE</button>
+	 	<button class='button-default' id="tulipSpread">NATIVE HABITAT</button>
+	 	<button class='button-default' id="tulipCities">CITIES</button>
+	 	<button class='button-default' id="tulipPrev">PREVIOUS</button>
+		<button class='button-default' id="tulipNext">NEXT</button>
+	 </div>
+
+	<div>
+	<p id="label">FLORICULTURE TODAY</p>
+	<button type='button' class='button-default' id="data-export">EXPORTS</button> <!-- Button to hide or show modal -->
+
+	<button type='button' class='button-default' id="data-import">IMPORTS</button> <!-- Button to hide or show modal -->
+
+	<button type='button' class='button-default' id="data-world">WORLD TRADE MAP</button> <!-- Button to hide or show modal -->
+	</div>
+
+	<button type='button' class='button-about' id="about">ABOUT</button> <!-- Button to hide or show modal -->
+
+	<div id="dahlia-text-box">
+		<p>The dahlia is native to Mexico and Guatemala. Spaniards first reported finding the plants in 1525. In 1789, Vicente Cervantes, Director of the Botanical Garden in Mexico City, sent dahlias to Abbe Antonio Jose Cavanilles, Director of the Royal Gardens of Madrid. </p>
+		<p>In 1789, Cavanilles sent seeds to Parma,Italy.</p>
+		<p>In 1789, the wife of the English Ambassador to Spain sent seeds to Kew Gardens.</p><p>In the following years, the Royal Gardens of Madrid sent seeds to Berlin.</p>
+		<p>In 1802, Cavanilles sent tubers to Swiss botanist Augustin Pyramus de Candolle in Montpellier</p>
+		<p>In 1802, Cavanilles sent tubers to Swiss botanist Augustin Pyramus de Candolle in Montpellier and to the Jardin des Plantes in Paris.</p>
+		<p>Seeds were also sent to horticultural capitals such as Leiden</p>
+		<p>Seeds were also sent to horticultural capitals such as Leiden and Copenhagen</p>
+		<p>Seeds were also sent to horticultural capitals such as Leiden and Copenhagen, as well as St. Petersburg.</p>
+		<p>The exact date dahlias were introduced to the United States is uncertain, but one of hte first records can be found from 1820 ins a catalog from the Linnaean botanical garden in New York.</p>
+
+	</div>
+
+	<div id="tulip-text-box">
+		<p>The tulip is native to the Tien Shan mountain region. Records show it was cultivated in Istanbul as early as 1055. In 1554, Ogier Ghiselih de Busbecq, the ambassador to the sultan of Turkey, sent seeds to Vienna, where Carlos Clusius headed the botanical garden.</p>
+		<p>Clusius took the seeds to Leiden in the Netherlands, where he laid out the physic garden at the city's new university.</p>
+		<p>Entrepreneurs began establishing nurseries aroudn the Netherlands at the start of the 17th century and soon tulip collecting took off. Tulips were exported to Berlin,</p>
+		<p>Entrepreneurs began establishing nurseries aroudn the Netherlands at the start of the 17th century and soon tulip collecting took off. Tulips were exported to Berlin, Paris, </p>
+		<p>Entrepreneurs began establishing nurseries aroudn the Netherlands at the start of the 17th century and soon tulip collecting took off. Tulips were exported to Berlin, Paris, and the Kew gardens in London. Within a year, the price of tulips more than doubled and speculators took advantage of the market. By the 1620s, single-colored varieties were selling for 12 florins a pound, while the average annal income was about 150 florins. By 1637, sellers began to outnumber buyers and the market collapsed. The Netherlands remains one of the largest exporters of bulbs today. <img src=/img/tulip_price_index-01.jpg width="400" margin="50"></p>
+		<p>The tulip came to the United States around 1698, as Dutch emigrants moved to the US.</p>
+
+	</div>
+
+	
+	<!-- Info window (shows info about parks when hovering over a park)  -->	
+<!-- 	<div class='map-overlay' id='features'>
+		<h1>THE WORLD OF FLOWERS</h1>
+		<div id='info-window-body'>
+			<p>"Emblazoned with beauty, this floral map shows the origins of 117 of man's favorite flowers. As people began to move from one part of the world to another, they carried plants with them. Explorers, conquerors, and adventurers returned to their homelands with flowers from far-off places. Colonists carried seeds and bulbs to the New World. Some have done so well in their adopted regions that their beginnings are seldom remembered."</p>
+		</div>
+	</div> -->
+	
+	<div class='dahliaInfoBox'>
+		<div class='info-body'><img src=/img/dahlia.png width="400" display="block">
+		</div>
+	</div>
+
+	<div class='tulipInfoBox'>
+		<div class='info-body'><img src=/img/tulip.png width="400" display="block">
+		</div>
+	</div>
+
+
+
+	<!-- "About this map" modal (hidden by default) -->	
+	<div class='modal'>
+		<h1 class='modal-title'>ABOUT THIS PROJECT</h1>
+		<div class='modal-body'><p style="color:white">This map was created in the Scripting Civic Engagement seminar at the University of Virginia (Fall 2017), taught by Andrea Hansen Phillips. Data courtsey of "The Plant Hunters: The Adventures of the World's Greatest Botanical Explorers" by Carolyn Fry.</p>
+
+		<button class='close-button'>&times;</button>  	<!-- A special "x" character (the multiply sign) used in close buttons -->	
+	</div>
+	</div>
+
+		<!-- Button to hide or show "About this map" modal -->	
+
+</body>
+
+<!-- Link to our custom javascript -->	
+<script src="svgInteractions.js"></script>
+
+ </html>
