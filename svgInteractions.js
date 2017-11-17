@@ -4,7 +4,7 @@ var sig = 'cb723072f6870d58'
 var key = '74838237bffa820e9242c061634ec0dd'
 
 
-    $('#svg-main').load('/img/map-01.svg', null, function() { 
+    $('#svg-main').load('img/map-01.svg', null, function() { 
 
     	console.log("loaded");
 
